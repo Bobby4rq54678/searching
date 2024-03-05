@@ -1,0 +1,16 @@
+
+<!-- action=, sends you to /search route when clicked on -->
+<form class="d-flex"  method="POST" action="{{ url_for('search') }}" action="{{ url_for('search') }}"> 
+    {{ form.csrf_token }}    
+    {{ form.search_input }}
+    {{ form.submit }} 
+</form>
+
+
+   <!-- search results-->
+    {% block searching_results %}
+    {% endblock searching_results %}
+    
+
+    {% block post_info %} 
+    {% endblock post_info %}

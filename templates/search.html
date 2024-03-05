@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% from "_formhelpers.html" import render_field %}
+
+{% block title %} {{title}} {% endblock title %}
+{% block searching_results %}
+
+ 
+    {{ searchform.csrf_token }}
+    {% if search_results %}
+
+        <br> <h2> You searched for... </h2> </br>
+        {% for search_result in search_results %}
+            {{ search_result }}
+        {% endfor %}
+       
+        {% for post in search_results %}
+            {{ post.title }} </a>
+        {% endfor %}
+
+    {% else %}    
+        <h2> Your search did not find anything. Please try again. </h2>
+    {% endif %}
+
+    <!--make flash message work-->
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul class=flashes>
+            {% for message in messages %}
+                <p1>  {{message}} </p1>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}    
+
+{% endblock searching_results %}     

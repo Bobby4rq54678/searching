@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+ <!-- title is flashblog -->
+{% block title %} {{title}} {% endblock title %} 
+{% block post_info %}   
+
+    {% if posts %} 
+
+        {% for post in posts %}  
+        <br>
+           {{post.title}} 
+        </br>
+        <br>
+           {{post.content}}           
+        </br>
+        {% endfor %}
+    {% endif %}
+    
+    
+{% endblock post_info %}
